@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /zookeeper
+    context-path: /zk
   port: 8088
 
 spring:
@@ -72,5 +72,12 @@ logging:
     cn:
       xzxy:
         lewy:
-          mybatis:
+          zk:
             mapper: debug
+
+curator:
+  retryCount: 5  #重试次数
+  elapsedTimeMs: 5000   #重试间隔时间
+  connectString: 192.168.37.101:2181,192.168.37.102:2181,192.168.37.103:2181   # zookeeper 地址 多个逗号分隔
+  sessionTimeoutMs: 50000  # session超时时间
+  connectionTimeoutMs: 30000  # 连接超时时间
